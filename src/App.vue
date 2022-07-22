@@ -1,9 +1,11 @@
 <script setup lang='ts'>
-// import { getCurrentInstance } from 'vue'
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { getCurrentInstance } from 'vue'
+
+const { $UniApi } = getCurrentInstance()!.appContext.config.globalProperties
 onLaunch(() => {
-  // const { $UniApi } = getCurrentInstance()!.appContext.config.globalProperties
-  // $UniApi.getStorageSync('xx')
+  // 检测应用是否需要更新
+  $UniApi.updateApp()
   console.log('App Launch');
 });
 onShow(() => {

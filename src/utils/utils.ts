@@ -1,7 +1,8 @@
+import { userStore } from '@/store'
 /**
  * @description 判断当前平台
  */
-function getPlatform() {
+function getPlatform () {
   let platform
   // #ifndef H5
   platform = 'H5'
@@ -15,7 +16,7 @@ function getPlatform() {
 /**
  * @description 获取基础url
  */
-function getBaseUrl() {
+function getBaseUrl () {
   let BASE_URL: string = ''
   if (process.env.NODE_ENV === 'development') {
     // 开发环境
@@ -32,7 +33,17 @@ function getBaseUrl() {
   return BASE_URL
 }
 
+/**
+ * @description 判断用户是否有该功能的权限
+ * @param {string} functionName 功能名称
+ */
+function getFunctionAuthority(functionName: string) {
+  const user = userStore()
+  return user.getFunctionAuthority(functionName)
+}
+
 export {
   getPlatform,
-  getBaseUrl
+  getBaseUrl,
+  getFunctionAuthority
 }

@@ -74,7 +74,7 @@ const baseRequest = (params: { url: string, data: any, contentType?: string }, m
  * @description 请求回复拦截器
  * @param { any } result 回复数据
  */
-function requestInterceptor(result: any) {
+function requestInterceptor (result: any) {
   let requestState = true, requestMessage = '', requestData
   if (result.statusCode === HTTP_STATUS.NOT_FOUND) {
     requestState = false
@@ -115,7 +115,7 @@ const request = {
  * @param { string } url 请求路径
  * @param { UniApp.RequestOptions['data'] } data 请求数据
  */
-function get(url: string, data?: UniApp.RequestOptions['data']) {
+function get (url: string, data?: UniApp.RequestOptions['data']) {
   const requestOption = { url, data }
   return baseRequest(requestOption, 'GET')
 }
@@ -126,7 +126,7 @@ function get(url: string, data?: UniApp.RequestOptions['data']) {
  * @param { UniApp.RequestOptions['data'] } data 请求数据
  * @param { string } contentType 请求数据格式
  */
-function post(url: string, data: UniApp.RequestOptions['data'], contentType?: string) {
+function post (url: string, data: UniApp.RequestOptions['data'], contentType?: string) {
   const requestOption = { url, data, contentType }
   return baseRequest(requestOption, 'POST')
 }

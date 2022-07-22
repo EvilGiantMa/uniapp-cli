@@ -16,7 +16,7 @@ const UniApi = getCurrentInstance()?.appContext.config.globalProperties.$UniApi
 /**
  * @description 跳转至关于我们页面
  */
-function navigateToAboutUs() {
+function navigateToAboutUs () {
   UniApi.navigateTo({ url: '/subpages/my/aboutUs/index' })
 }
 
